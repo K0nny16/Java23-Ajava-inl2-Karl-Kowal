@@ -5,8 +5,8 @@ import java.util.List;
 
 public class GUI {
 
-    JTable table;
-    JPanel panel;
+    private JTable table;
+    private JPanel panel;
     private static String URL;
 
     GUI() {
@@ -27,16 +27,12 @@ public class GUI {
     }
 
     void center() {
-        List<String[]> data = FileManagement.getArraySize();
-        if (!data.isEmpty()) {
-            String[] columnNames = data.get(0);
-            String[][] rowData = data.stream().skip(1).toArray(String[][]::new);
-            DefaultTableModel model = new DefaultTableModel(rowData, columnNames);
-            table = new JTable(model);
-            table.setAutoCreateRowSorter(true);
-
-        } else
-            JOptionPane.showMessageDialog(null, "Ingen fil valdes!");
+        List<String[]> filData = FileManagement.getArraySize();
+        String[] header = filData.get(0);
+        String[][] rows = filData.stream().skip(1).toArray(String[][]::new);
+        DefaultTableModel model = new DefaultTableModel(rows, header);
+        table = new JTable(model);
+        table.setAutoCreateRowSorter(true);
     }
     void filePicker(){
         JFileChooser j = new JFileChooser("src");
