@@ -1,27 +1,27 @@
 import java.io.File;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileManagement {
 
-    private static String[][] arraySize;
+    private static ArrayList<String[]> arraySize;
 
-    FileManagement(){
-        arraySize = new String[3][0];
-        try{
-            File file = new File("Materiallista.csv");
+    FileManagement() {
+        arraySize = new ArrayList<>();
+        try {
+            File file = new File("sample.csv");
             Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()){
+            while (scanner.hasNext()) {
                 String line = scanner.nextLine();
-                String[] array = line.split(",",3);
-                arraySize= Arrays.copyOf(arraySize,arraySize.length+1);
-                arraySize[arraySize.length-1]=array;
+                String[] array = line.split(",");
+                arraySize.add(array);
             }
-        }catch(Exception e){
-            System.out.println("Error:"+e.toString());
+            scanner.close(); // Glöm inte att stänga skannern när du är klar med den.
+        } catch (Exception e) {
+            System.out.println("Error: " + e);
         }
     }
-    static String[][] getarraySize(){
+    static ArrayList<String[]> getArraySize() {
         return arraySize;
     }
 }
