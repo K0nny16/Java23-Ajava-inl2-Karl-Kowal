@@ -6,10 +6,10 @@ public class FileManagement {
 
     private static ArrayList<String[]> arraySize;
 
-    FileManagement() {
+    FileManagement(String URL) {
         arraySize = new ArrayList<>();
         try {
-            File file = new File("sample.csv");
+            File file = new File(URL);
             Scanner scanner = new Scanner(file);
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
