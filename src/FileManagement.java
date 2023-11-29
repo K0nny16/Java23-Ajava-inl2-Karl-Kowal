@@ -37,7 +37,6 @@ public class FileManagement {
         header = filData.get(0);                                                //Plockar ut det första värdet i Listan för det kommer vara headern.
         rows = filData.stream().skip(1).toArray(String[][]::new);               //Tar data från List och streamar genom den och skippar det första värdet i den eftersom att det är min header och jag vill inte ha den 2 gånger och gör det till en 2D String array som jag sedan spara i 2D arrayn rows.
     }
-
     private void JSON(File file) throws Exception {                     //Måste finns en try/catch eller throw för att FileReader ska funka.
         JSONParser parser = new JSONParser();
         FileReader reader = new FileReader(file);

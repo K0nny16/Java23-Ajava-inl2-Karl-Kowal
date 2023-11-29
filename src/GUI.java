@@ -24,7 +24,7 @@ public class GUI {
 
         center();
         panel.add(new JScrollPane(table),BorderLayout.CENTER);      //Lägger till JTablet och en JScrollPane så att man kan scrolla i tablet.
-        frame.add(panel,BorderLayout.CENTER);                       //Sätter layout center och varför jag skapade en till panel och inte satte det direkt på framen är för att kanske i framtiden vill ha något i south eller norht som att lägga till celler/någon form av save funktion.
+        frame.add(panel,BorderLayout.CENTER);                       //Sätter layout center och varför jag skapade en panel till och inte satte det direkt på framen är för att kanske i framtiden vill ha något i south eller norht som att lägga till celler/någon form av save funktion.
         frame.setVisible(true);
     }
     void center() {
@@ -35,12 +35,10 @@ public class GUI {
     void filePicker(){
         JFileChooser j = new JFileChooser("src");                               //Öppnar JFC i src-mappen.
         int accept = j.showOpenDialog(null);                                    //Sparar värdet av vad användaren trycker på i JFCn.
-        if(accept == JFileChooser.APPROVE_OPTION){
+        if(accept == JFileChooser.APPROVE_OPTION)
             setURL(j.getSelectedFile().getAbsolutePath());                      //Tar Stringen som inehåller pathen till filen och setter den till min URL String.
-        }
-        else{
+        else
             System.exit(0);
-        }
     }
     void setURL(String s){
         URL = s;
