@@ -21,7 +21,7 @@ public class FileManagement {
         arraySize = new ArrayList<>();
         try {
             File file = new File(URL);              //Inputar path stringen till en ny file.
-            String[] extension = URL.split("\\.");  //Föreslet regx av intelliJ.
+            String[] extension = URL.split("\\.");  //Förslaget regx av intelliJ.
             if(Objects.equals(extension[1],"csv"))
                 CSV(file);
             else if(Objects.equals(extension[1],"json"))
@@ -45,10 +45,10 @@ public class FileManagement {
 
         for (Object json : jsonArray) {                                  //Loopar igenom varje element i jsonArray
             JSONObject jsonObject = (JSONObject) json;                   //Castar om det till ett JsonObjekt.
-            List<String> rowData = new ArrayList<>();                    //Lagrar värdena av varje nyckel i jsonObject. Vilket i detta fallet är A,B,C,D,E,F,G,H
+            List<String> rowData = new ArrayList<>();                    //Lagrar värdena av varje nyckel i jsonObject. Vilket i detta fallet är A, B, C, D, E, F, G, H
 
             for (Object key : jsonObject.keySet())                       //Loopar igenom varje nyckel i objektet.
-                rowData.add(jsonObject.get(key).toString());             //Lägger till värdet av varje nyckel i listan som skaped innan. (Påminner lite om HashMaps)
+                rowData.add(jsonObject.get(key).toString());             //Lägger till värdet av varje nyckel i listan som skapades innan. (Påminner lite om HashMaps)
             arraySize.add(rowData.toArray(new String[0]));               //Lägger till det i "main" ArrayListen.
         }
         reader.close();                                             //Stänger filreadern med för att undvika memoryleaks.
