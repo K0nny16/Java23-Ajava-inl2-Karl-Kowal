@@ -52,6 +52,7 @@ public class FileManagement {
                 rowData.add(jsonObject.get(key).toString());             //Lägger till värdet av varje nyckel i listan som skaped innan. (Påminner lite om HashMaps)
             arraySize.add(rowData.toArray(new String[0]));               //Lägger till det i "main" ArrayListen.
         }
+        reader.close();                                             //Stänger filreadern med för att undvika memoryleaks.
     }
     private void CSV(File file) throws Exception{
         Scanner scanner = new Scanner(file);                        //Scannar filen
