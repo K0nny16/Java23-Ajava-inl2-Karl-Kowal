@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GUI {
-    DefaultTableModel model;
+    private DefaultTableModel model;
     private JFrame frame;
     private JPanel panel;
     private static String URL;
