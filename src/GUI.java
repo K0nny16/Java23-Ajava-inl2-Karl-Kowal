@@ -35,12 +35,7 @@ public class GUI {
         JButton save = new JButton("Save");
         JPanel bottom = new JPanel();
         save.setFocusable(false);
-        save.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                save();
-            }
-        });
+        save.addActionListener(e -> save());
         frame.add(bottom,BorderLayout.SOUTH);
         bottom.setLayout(new FlowLayout());
         bottom.add(save);
